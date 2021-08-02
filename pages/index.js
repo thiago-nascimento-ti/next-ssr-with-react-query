@@ -48,8 +48,6 @@ const getUsers = (query) =>
     .then(({ data: { users } }) => users);
 
 const getDelayedData = (fetcher) => {
-  if (typeof window === 'undefined') return Promise.resolve([]);
-
   return new Promise((resolve) => {
     setTimeout(async () => {
       const data = await fetcher("{ users { name } }")
